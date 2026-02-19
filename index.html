@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symulacja 100 Zębatek — Przełożenie Googol (10^100)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>⚙️ Symulacja 100 Zębatek — Przełożenie Googol (10<sup>100</sup>)</h1>
+        <p class="description">
+            Symulacja złożonego przekładniowego układu zębatego składającego się ze 100 jednostek.
+            Każda jednostka zawiera <strong>duże koło zębate (100 zębów)</strong> i <strong>mały zębnik (10 zębów)</strong>
+            osadzone na wspólnej osi. Zębnik jednostki N zazębia się z dużym kołem jednostki N+1,
+            tworząc przełożenie <strong>10:1 na każdym stopniu</strong>.
+            Całkowite przełożenie wynosi <strong>10<sup>100</sup></strong> (jeden googol) —
+            gdy pierwsze koło wykona jeden pełny obrót, ostatnie koło obróci się o 10<sup>-100</sup> obrotu.
+        </p>
+    </header>
+
+    <div id="info-box">
+        <p>💡 <strong>Ciekawostka:</strong> Przy promieniu dużej zębatki wynoszącym 55px (~5,5 cm), aby krawędź pierwszego koła poruszała się z prędkością światła (299 792 458 m/s), musi ono wykonywać ~8,68 × 10⁸ obrotów na sekundę (868 milionów ob/s). Wpisz <code>8.68e8</code> w pole prędkości, aby to zasymulować!</p>
+    </div>
+
+    <div id="control-panel">
+        <div class="control-group">
+            <label for="manual-slider">🎛️ Ręczny obrót pierwszego koła:</label>
+            <input type="range" id="manual-slider" min="0" max="3600" value="0" step="1">
+            <span id="slider-value">0.00 obr.</span>
+        </div>
+
+        <div class="control-group">
+            <button id="auto-rotate-btn" class="btn">▶️ Auto-obrót: WYŁ</button>
+            <button id="reset-btn" class="btn btn-danger">🔄 Reset</button>
+        </div>
+
+        <div class="control-group">
+            <label for="speed-value">⚡ Prędkość:</label>
+            <input type="text" id="speed-value" value="1" placeholder="np. 1e100">
+            <select id="speed-unit">
+                <option value="per-second">ob/s</option>
+                <option value="per-minute">ob/min</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label>📍 Nawigacja:</label>
+            <button id="scroll-left" class="btn btn-nav">◀ Lewo</button>
+            <button id="scroll-right" class="btn btn-nav">Prawo ▶</button>
+            <span id="viewport-info">Zębatki: 1–10</span>
+            <label for="goto-gear">Idź do:</label>
+            <input type="number" id="goto-gear" min="1" max="100" value="1" step="1">
+            <button id="goto-btn" class="btn btn-nav">Idź</button>
+        </div>
+    </div>
+
+    <div id="canvas-container">
+        <canvas id="gear-canvas"></canvas>
+    </div>
+
+    <footer>
+        <p>Użyj suwaka lub auto-obrotu, aby napędzić układ. Przewijaj w poziomie (przeciągnij myszą, kółko myszy lub klawisze strzałek), aby zobaczyć kolejne zębatki.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
